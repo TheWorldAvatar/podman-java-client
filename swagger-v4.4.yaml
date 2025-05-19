@@ -2441,8 +2441,6 @@ definitions:
                 x-go-name: UIDMap
         type: object
         x-go-package: github.com/containers/podman/v4/libpod/define
-    IDResponse:
-        $ref: "#/definitions/IdResponse"
     IPAM:
         description: IPAM represents IP Address Management
         properties:
@@ -2493,7 +2491,7 @@ definitions:
         title: An IPNet represents an IP network.
         type: object
         x-go-package: net
-    IdResponse:
+    IDResponse:
         description: IDResponse Response to an API call that returns just an Id
         properties:
             Id:
