@@ -17,5 +17,11 @@ jobs:
           overwrite-settings: false
           settings-path: ${{ github.workspace }}
       - run: 'mvn package'
+        env:
+          GITHUB_ACTOR: "token"
+          GITHUB_TOKEN: ${{ github.token }}
       - run: 'mvn deploy'
         if: github.ref_name == 'main'
+        env:
+          GITHUB_ACTOR: "token"
+          GITHUB_TOKEN: ${{ github.token }}
