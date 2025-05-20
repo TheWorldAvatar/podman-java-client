@@ -1,7 +1,10 @@
 name: Generate Java API Client
 
 on:
-  workflow_dispatch:
+    push:
+      branches:
+        - main
+    workflow_dispatch:
 jobs:
   generate-client:
     runs-on: ubuntu-latest
