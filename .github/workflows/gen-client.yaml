@@ -18,6 +18,10 @@ jobs:
           cache: 'maven'
           overwrite-settings: false
           settings-path: ${{ github.workspace }}/.m2
+      - run: 'cat ${{ github.workspace }}/.m2/settings.xml'
+        env:
+          GITHUB_ACTOR: "token"
+          GITHUB_TOKEN: "dummy"
       - run: 'mvn package'
         env:
           GITHUB_ACTOR: "token"
