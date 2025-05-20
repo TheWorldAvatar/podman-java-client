@@ -1,0 +1,15 @@
+additionalProperties:
+  groupId: io.theworldavatar
+  artifactId: swagger-java-client
+  artifactVersion: 4.4.0
+  modelPackage: io.theworldavatar.swagger.podman.model
+  apiPackage: io.theworldavatar.swagger.podman.api
+  dateLibrary: legacy
+  library: jersey2
+  apis:
+  apiTests: false
+  apiDocs: false
+  models:
+  modelTests: false
+  modelDocs: false
+  supportingFiles:
