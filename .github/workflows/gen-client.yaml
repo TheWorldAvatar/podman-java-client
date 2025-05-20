@@ -2,8 +2,6 @@ name: Generate Java API Client
 
 on:
     push:
-      branches:
-        - main
     workflow_dispatch:
 jobs:
   generate-client:
@@ -18,3 +16,4 @@ jobs:
           cache: 'maven'
       - run: 'mvn package'
       - run: 'mvn deploy'
+        if: github.ref_name == 'main'
