@@ -20,7 +20,7 @@ jobs:
         env:
           GITHUB_ACTOR: "token"
           GITHUB_TOKEN: ${{ github.token }}
-      - run: 'mvn deploy:deploy'
+      - run: 'mvn deploy'
         if: github.ref_name == 'main'
         env:
           GITHUB_ACTOR: "token"
