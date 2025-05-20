@@ -21,7 +21,8 @@ jobs:
       - run: 'mvn package'
         env:
           GITHUB_ACTOR: "token"
-          GITHUB_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
+          GITHUB_ORG_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
       - run: 'mvn deploy:deploy'
         if: github.ref_name == 'main'
         env:
