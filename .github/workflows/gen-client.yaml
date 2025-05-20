@@ -1,16 +1,27 @@
 name: Generate Java API Client
 
+permissions:
+    packages: write
 on:
     push:
-      branches:
-        - main
     workflow_dispatch:
 jobs:
   generate-client:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Swagger Codegen
-        uses: bjerkio/swagger-codegen-action@v1
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.7.1
         with:
-          args: generate -l java -c openapi-java-client.yaml -i swagger-v4.4.yaml
+          distribution: 'temurin'
+          java-version: '11'
+          cache: 'maven'
+      - run: 'mvn package'
+        env:
+          GITHUB_ACTOR: "token"
+          GITHUB_TOKEN: ${{ github.token }}
+      - run: 'mvn deploy:deploy'
+        if: github.ref_name == 'main'
+        env:
+          GITHUB_ACTOR: "token"
+          GITHUB_TOKEN: ${{ github.token }}
