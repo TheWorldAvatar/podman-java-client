@@ -15,6 +15,7 @@ jobs:
           java-version: '11'
           cache: 'maven'
           overwrite-settings: false
+          settings-path: ${{ github.workspace }}
       - run: 'mvn package'
       - run: 'mvn deploy'
         if: github.ref_name == 'main'
