@@ -16,12 +16,11 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
           cache: 'maven'
-          overwrite-settings: false
+          overwrite-settings: true
           settings-path: ${{ github.workspace }}/.m2
       - run: 'mvn package -s ${{ github.workspace }}/.m2/settings.xml'
         env:
           GITHUB_ACTOR: "token"
-          GITHUB_ORG_TOKEN: ${{ secrets.ORG_ACCESS_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
       - run: 'mvn deploy:deploy -s ${{ github.workspace }}/.m2/settings.xml'
         if: github.ref_name == 'main'

@@ -31,7 +31,7 @@
     <!-- Repository locations to fetch from -->
     <repositories>
         <repository>
-            <id>github_org</id>
+            <id>github</id>
             <name>The World Avatar Maven Repository</name>
             <url>https://maven.pkg.github.com/TheWorldAvatar/*</url>
         </repository>
