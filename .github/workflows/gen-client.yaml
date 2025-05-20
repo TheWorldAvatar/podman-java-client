@@ -1,7 +1,7 @@
 name: Generate Java API Client
 
 permissions:
-    packages: read
+    packages: write
 on:
     push:
     workflow_dispatch:
