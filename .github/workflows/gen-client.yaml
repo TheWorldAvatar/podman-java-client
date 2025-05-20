@@ -17,6 +17,7 @@ jobs:
           java-version: '11'
           cache: 'maven'
       - run: 'mvn package'
+        if: github.ref_name != 'main'
         env:
           GITHUB_ACTOR: "token"
           GITHUB_TOKEN: ${{ github.token }}
