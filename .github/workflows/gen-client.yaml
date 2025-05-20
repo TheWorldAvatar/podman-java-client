@@ -13,4 +13,4 @@ jobs:
       - name: Swagger Codegen
         uses: bjerkio/swagger-codegen-action@v1
         with:
-          args: generate -g java -c openapi-java-client.yaml -i swagger-v4.4.yaml
+          args: generate -l java -c openapi-java-client.yaml -i swagger-v4.4.yaml
