@@ -7,7 +7,7 @@
 
     <groupId>io.theworldavatar</groupId>
     <artifactId>podman-java-client</artifactId>
-    <version>${revision}</version>
+    <version>${revision}${changelist}</version>
     <packaging>jar</packaging>
 
     <name>Podman Java Client</name>
@@ -24,6 +24,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.release>11</maven.compiler.release>
         <revision>4.4.0</revision>
+        <changelist>-1-SNAPSHOT</changelist>
         <!--podman.file>https://storage.googleapis.com/libpod-master-releases/swagger-v4.4.yaml</podman.file-->
         <podman.file>${project.basedir}/swagger-v${revision}.yaml</podman.file>
 
