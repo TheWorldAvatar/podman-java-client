@@ -7645,7 +7645,8 @@ definitions:
             for the HEALTHCHECK feature, from docker/docker/api/types/container.
         properties:
             Interval:
-                $ref: "#/definitions/Duration"
+                format: int64
+                type: integer
             Retries:
                 description: |-
                     Retries is the number of consecutive failures needed to consider a container as unhealthy.
@@ -7653,7 +7654,8 @@ definitions:
                 format: int64
                 type: integer
             StartPeriod:
-                $ref: "#/definitions/Duration"
+                format: int64
+                type: integer
             Test:
                 description: |-
                     Test is the test to perform to check that the container is healthy.
@@ -7667,7 +7669,8 @@ definitions:
                     type: string
                 type: array
             Timeout:
-                $ref: "#/definitions/Duration"
+                format: int64
+                type: integer
         type: object
         x-go-package: github.com/containers/image/v5/manifest
     Schema2List:
@@ -9499,7 +9502,7 @@ info:
         url: https://podman.io/community/
     description: |-
         This documentation describes the Podman v2.x+ RESTful API. It consists of a Docker-compatible
-        API and a Libpod API providing support for Podman’s unique features such as pods.
+        API and a Libpod API providing support for Podmanâ€™s unique features such as pods.
 
         To start the service and keep it running for 5,000 seconds (-t 0 runs forever):
 
@@ -9597,7 +9600,7 @@ paths:
                   type: string
                 - description: |
                     A Git repository URI or HTTP/HTTPS context URI.
-                    If the URI points to a single text file, the file’s contents are placed
+                    If the URI points to a single text file, the fileâ€™s contents are placed
                     into a file called Dockerfile and the image is built from that file. If
                     the URI points to a tarball, the file is downloaded by the daemon and the
                     contents therein used as the context for the build. If the URI points to a
@@ -10336,7 +10339,7 @@ paths:
                 - containers (compat)
     /containers/{name}/stats:
         get:
-            description: This returns a live stream of a container’s resource usage statistics.
+            description: This returns a live stream of a containerâ€™s resource usage statistics.
             operationId: ContainerStats
             parameters:
                 - description: the name or ID of the container
@@ -10574,7 +10577,7 @@ paths:
             parameters:
                 - description: |
                     Filters to process on the prune list, encoded as JSON (a `map[string][]string`).  Available filters:
-                     - `until=<timestamp>` Prune containers created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                     - `until=<timestamp>` Prune containers created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                      - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune containers with (or without, in case `label!=...` is used) the specified labels.
                   in: query
                   name: filters
@@ -11036,7 +11039,7 @@ paths:
                       - `dangling=<boolean>` When set to `true` (or `1`), prune only
                          unused *and* untagged images. When set to `false`
                          (or `0`), all unused images are pruned.
-                      - `until=<string>` Prune images created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<string>` Prune images created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                       - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune images with (or without, in case `label!=...` is used) the specified labels.
                   in: query
                   name: filters
@@ -11192,7 +11195,7 @@ paths:
                   type: string
                 - description: |
                     A Git repository URI or HTTP/HTTPS context URI.
-                    If the URI points to a single text file, the file’s contents are placed
+                    If the URI points to a single text file, the fileâ€™s contents are placed
                     into a file called Dockerfile and the image is built from that file. If
                     the URI points to a tarball, the file is downloaded by the daemon and the
                     contents therein used as the context for the build. If the URI points to a
@@ -12527,7 +12530,7 @@ paths:
             parameters:
                 - description: |
                     Filters to process on the prune list, encoded as JSON (a `map[string][]string`).  Available filters:
-                     - `until=<timestamp>` Prune containers created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                     - `until=<timestamp>` Prune containers created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                      - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune containers with (or without, in case `label!=...` is used) the specified labels.
                   in: query
                   name: filters
@@ -13332,7 +13335,7 @@ paths:
                       - `dangling=<boolean>` When set to `true` (or `1`), prune only
                          unused *and* untagged images. When set to `false`
                          (or `0`), all unused images are pruned.
-                      - `until=<string>` Prune images created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<string>` Prune images created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                       - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune images with (or without, in case `label!=...` is used) the specified labels.
                   in: query
                   name: filters
@@ -14080,7 +14083,7 @@ paths:
                 - description: |
                     Filters to process on the prune list, encoded as JSON (a `map[string][]string`).
                     Available filters:
-                      - `until=<timestamp>` Prune networks created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<timestamp>` Prune networks created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                       - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune networks with (or without, in case `label!=...` is used) the specified labels.
                   in: query
                   name: filters
@@ -14469,7 +14472,7 @@ paths:
                       - `id=<pod-id>` Matches all of pod id.
                       - `label=<key>` or `label=<key>:<value>` Matches pods based on the presence of a label alone or a label and a value.
                       - `name=<pod-name>` Matches all of pod name.
-                      - `until=<timestamp>` List pods created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<timestamp>` List pods created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                       - `status=<pod-status>` Pod's status: `stopped`, `running`, `paused`, `exited`, `dead`, `created`, `degraded`.
                       - `network=<pod-network>` Name or full ID of network.
                       - `ctr-names=<pod-ctr-names>` Container name within the pod.
@@ -14781,7 +14784,7 @@ paths:
                       - label=<key> or label=<key>:<value> Matches volumes based on the presence of a label alone or a label and a value.
                       - name=<volume-name> Matches all of volume name.
                       - opt=<driver-option> Matches a storage driver options
-                      - `until=<timestamp>` List volumes created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<timestamp>` List volumes created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                   in: query
                   name: filters
                   type: string
@@ -14802,7 +14805,7 @@ paths:
                 - description: |
                     JSON encoded value of filters (a map[string][]string) to match volumes against before pruning.
                     Available filters:
-                      - `until=<timestamp>` Prune volumes created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<timestamp>` Prune volumes created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                       - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune volumes with (or without, in case `label!=...` is used) the specified labels.
                   in: query
                   name: filters
@@ -14983,7 +14986,7 @@ paths:
                 - description: |
                     Filters to process on the prune list, encoded as JSON (a map[string][]string).
                     Available filters:
-                      - `until=<timestamp>` Prune networks created before this timestamp. The <timestamp> can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<timestamp>` Prune networks created before this timestamp. The <timestamp> can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                       - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune networks with (or without, in case `label!=...` is used) the specified labels.
                   in: query
                   name: filters
@@ -15125,7 +15128,7 @@ paths:
                       - driver=<volume-driver-name> Matches volumes based on their driver.
                       - label=<key> or label=<key>:<value> Matches volumes based on the presence of a label alone or a label and a value.
                       - name=<volume-name> Matches all of volume name.
-                      - `until=<timestamp>` List volumes created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<timestamp>` List volumes created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
 
                     Note:
                       The boolean `dangling` filter is not yet implemented for this endpoint.
@@ -15218,7 +15221,7 @@ paths:
                 - description: |
                     JSON encoded value of filters (a map[string][]string) to match volumes against before pruning.
                     Available filters:
-                      - `until=<timestamp>` Prune volumes created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machine’s time.
+                      - `until=<timestamp>` Prune volumes created before this timestamp. The `<timestamp>` can be Unix timestamps, date formatted timestamps, or Go duration strings (e.g. `10m`, `1h30m`) computed relative to the daemon machineâ€™s time.
                       - `label` (`label=<key>`, `label=<key>=<value>`, `label!=<key>`, or `label!=<key>=<value>`) Prune volumes with (or without, in case `label!=...` is used) the specified labels.
                   in: query
                   name: filters
